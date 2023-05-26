@@ -15,7 +15,6 @@ namespace AssignmentTest
             chest.Open();
             Assert.AreEqual(chest.GetState(), TreasureChest.State.Locked);
         }
-
         [TestMethod]
         public void OpenClosedTest()
         {
@@ -24,7 +23,6 @@ namespace AssignmentTest
             chest.Open();
             Assert.AreEqual(chest.GetState(), TreasureChest.State.Open);
         }
-
         [TestMethod]
         public void OpenOpenTest()
         {
@@ -32,6 +30,30 @@ namespace AssignmentTest
             TreasureChest chest = new TreasureChest(TreasureChest.State.Open);
             chest.Open();
             Assert.AreEqual(chest.GetState(), TreasureChest.State.Open);
+        }
+        [TestMethod]
+        public void LockedLockedTest()
+        {
+            // Create a new chest that is in the Locked state
+            TreasureChest chest = new TreasureChest(TreasureChest.State.Locked);
+            chest.Locked();
+            Assert.AreEqual(chest.GetState(), TreasureChest.State.Locked);
+        }
+        [TestMethod]
+        public void CloseLockedTest()
+        {
+            // Create a new chest that is in the Locked state
+            TreasureChest chest = new TreasureChest(TreasureChest.State.Locked);
+            chest.Closed();
+            Assert.AreEqual(chest.GetState(), TreasureChest.State.Closed);
+        }
+        [TestMethod]
+        public void LockectOpenTest()
+        {
+            // Create a new chest that is in the open state
+            TreasureChest chest = new TreasureChest(TreasureChest.State.Open);
+            chest.Locked();
+            Assert.AreEqual(chest.GetState(), TreasureChest.State.Locked);
         }
     }
 }
