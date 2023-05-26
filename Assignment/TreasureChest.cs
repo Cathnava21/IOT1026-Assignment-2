@@ -36,7 +36,7 @@
 
         public State Manipulate(Action action)
         {
-           switch (action)
+            switch (action)
             {
                 case Action.Open:
                     Open();
@@ -59,7 +59,7 @@
 
         public void Unlock()
         {
-           // We should check if the chest is Locked
+            // We should check if the chest is Locked
             if (_state == State.Locked)
             {
                 _state = State.Closed;
@@ -76,7 +76,7 @@
 
         public void Lock()
         {
-           // We should check if the chest is closed
+            // We should check if the chest is closed
             if (_state == State.Closed)
             {
                 _state = State.Locked;
@@ -110,7 +110,7 @@
 
         public void Close()
         {
-           // We should check if the chest is open
+            // We should check if the chest is open
             if (_state == State.Open)
             {
                 _state = State.Closed;

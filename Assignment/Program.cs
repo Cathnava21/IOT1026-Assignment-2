@@ -4,12 +4,12 @@
     {
         static void Main()
         {
-             TreasureChest chest = new TreasureChest();
+            TreasureChest chest = new TreasureChest();
             bool exit = false;
             while (!exit)
             {
                 Console.Clear();
-                Console.WriteLine(chest+"\n"); // Display initial state and properties
+                Console.WriteLine(chest + "\n"); // Display initial state and properties
                 Console.WriteLine("********** Treasure Chest Menu **********");
                 Console.WriteLine("1. Open the chest");
                 Console.WriteLine("2. Close the chest");
