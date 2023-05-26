@@ -36,20 +36,59 @@
 
         public State Manipulate(Action action)
         {
-            if (action == Action.Open) {
-                Open();
+           switch (action)
+            {
+                case Action.Open:
+                    Open();
+                    break;
+                case Action.Close:
+                    Close();
+                    break;
+                case Action.Lock:
+                    Lock();
+                    break;
+                case Action.Unlock:
+                    Unlock();
+                    break;
+                default:
+                    Console.WriteLine("Invalid action.");
+                    break;
             }
             return _state;
         }
 
         public void Unlock()
         {
-            throw new NotImplementedException();
+           // We should check if the chest is Locked
+            if (_state == State.Locked)
+            {
+                _state = State.Closed;
+            }
+            else if (_state == State.Closed)
+            {
+                Console.WriteLine("Please, first lock the treasure.");
+            }
+            else
+            {
+                Console.WriteLine("Please, first close the threasure and then lock it.");
+            }
         }
 
         public void Lock()
         {
-            throw new NotImplementedException();
+           // We should check if the chest is closed
+            if (_state == State.Closed)
+            {
+                _state = State.Locked;
+            }
+            else if (_state == State.Locked)
+            {
+                Console.WriteLine("The threasure is already locked.");
+            }
+            else
+            {
+                Console.WriteLine("Please, first close the threasure.");
+            }
         }
 
         public void Open()
@@ -71,7 +110,19 @@
 
         public void Close()
         {
-            throw new NotImplementedException();
+           // We should check if the chest is open
+            if (_state == State.Open)
+            {
+                _state = State.Closed;
+            }
+            else if (_state == State.Closed)
+            {
+                Console.WriteLine("The chest is already close!");
+            }
+            else if (_state == State.Locked)
+            {
+                Console.WriteLine("The chest cannot be close because is already close and locked.");
+            }
         }
 
         public override string ToString()
